@@ -11,8 +11,13 @@ const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage }) => {
     let ne;
     let prd;
     let ned;
+    let first;
+    let last;
     let pageCutLow = curentPage - 14;
     let pageCutHigh = curentPage + 14;
+    if (curentPage > 1) {
+        first = <li className="pag"><a href="#" className="pag" onClick={() => paginate(1)}>First</a></li>;
+    }
     if (curentPage > 1) {
         pr = <li className="pag"><a href="#" className="pag" onClick={() => paginate(curentPage - 1)}>Previous</a></li>;
     }
@@ -25,9 +30,13 @@ const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage }) => {
     if (pageCutHigh < pageNumbers.length) {
         ned = <li className="pag"><a href="#" className="pag" onClick={() => paginate(curentPage + 13)}>{">"}</a></li>;
     }
+    if (pageCutHigh < pageNumbers.length) {
+        last = <li className="pag"><a href="#" className="pag" onClick={() => paginate(pageNumbers.length)}>{"Last"}</a></li>;
+    }
     return (
         <nav className="pag nav">
             <ul className="pag">
+                {first}
                 {pr}
                 {prd}
                 {pageNumbers.filter(num => num > pageCutLow + 1 && num < pageCutHigh - 1).map(num => (
@@ -37,6 +46,7 @@ const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage }) => {
                 ))}
                 {ned}
                 {ne}
+                {last}
             </ul>
         </nav >
     )
