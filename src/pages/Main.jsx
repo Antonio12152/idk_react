@@ -9,7 +9,7 @@ const Main = (props) => {
                         <a href='/'>Post</a>
                     </li>
                     <li>
-                        <a href='/postimg'>Post+Img</a>
+                        <a href='/postimg/'>Post+Img</a>
                     </li>
                 </ul>
             </header>

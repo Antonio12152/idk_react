@@ -4,16 +4,19 @@ const PostsimgList = ({ posts, curentPost, loading, postsPerPage, paginate, cure
     if (loading) {
         return <h2>loading</h2>
     }
+    
     return (<div className='div-main'>
         <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} curentPage={curentPage} />
         {curentPost.map((post) => (
             <div key={post.id} className='div-post-img'>
-                <div>
-                    <div className='div-title'>{post.title}</div>
-                </div>
-                <div className='div-img'>
-                    <img src={post.url} alt="img" />
-                </div>
+                <a href={`./${post.id}`}>
+                    <div>
+                        <div className='div-title'>{post.title}</div>
+                    </div>
+                    <div className='div-img'>
+                        <img src={post.url} alt="img"/>
+                    </div>
+                </a>
             </div>
         ))}
         <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} curentPage={curentPage} />

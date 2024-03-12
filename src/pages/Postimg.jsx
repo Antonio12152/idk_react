@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PostsimgList from "../components/PostsimgList";
+import PostimgSingle from "../components/PostimgSingle"
 
 const Postimg = () => {
-    const [posts, setPosts] = useState([])
+    const [post, setPost] = useState([])
     const [loading, setLoading] = useState(false)
-    const [curentPage, setCurentPage] = useState(1)
-    const [postsPerPage] = useState(10)
-
+    const currentUrl = window.location.href;
+    const segments = currentUrl.split("/"); // Разбиваем URL на сегменты с помощью разделителя "/"
+    const id = segments[segments.length - 1]; // Получаем последний сегмент, содержащий числовое значение
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true)
-            const res = await axios.get('https://jsonplaceholder.typicode.com/photos')
-            setPosts(res.data)
+            const res = await axios.get(`https://jsonplaceholder.typicode.com/photos/${id}`)
+            setPost(res.data)
             setLoading(false)
         }
         fetchPosts()
     }, []);
-
-    const indexOfLastPost = curentPage * postsPerPage
-    const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const curentPost = posts.slice(indexOfFirstPost, indexOfLastPost)
-
-    const paginate = (pageNumber) => setCurentPage(pageNumber)
-
     return (
         <div>
-            <PostsimgList posts={posts} curentPost={curentPost} loading={loading} postsPerPage={postsPerPage} paginate={paginate} curentPage={curentPage}/>
+            <PostimgSingle post={post} loading={loading} />
         </div>
     )
 }
