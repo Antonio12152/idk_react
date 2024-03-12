@@ -26,7 +26,7 @@ const Postimg = () => {
 
     return (
         <div>
-            <PostsimgList posts={posts} curentPost={curentPost} loading={loading} postsPerPage={postsPerPage} paginate={paginate}/>
+            <PostsimgList posts={posts} curentPost={curentPost} loading={loading} postsPerPage={postsPerPage} paginate={paginate} curentPage={curentPage}/>
         </div>
     )
 }

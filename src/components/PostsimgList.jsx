@@ -1,10 +1,11 @@
 import '../CSS/PostImg.css'
 import Pagin from './Pagin';
-const PostsimgList = ({ posts, curentPost, loading, postsPerPage, paginate }) => {
+const PostsimgList = ({ posts, curentPost, loading, postsPerPage, paginate, curentPage }) => {
     if (loading) {
         return <h2>loading</h2>
     }
     return (<div className='div-main'>
+        <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} curentPage={curentPage} />
         {curentPost.map((post) => (
             <div key={post.id} className='div-post-img'>
                 <div>
@@ -15,7 +16,7 @@ const PostsimgList = ({ posts, curentPost, loading, postsPerPage, paginate }) =>
                 </div>
             </div>
         ))}
-        <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} />
+        <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} curentPage={curentPage} />
     </div>)
 }
 
