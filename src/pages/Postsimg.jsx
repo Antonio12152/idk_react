@@ -5,7 +5,7 @@ import PostsimgList from "../components/PostsimgList";
 const Postsimg = () => {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
-    const [curentPage, setCurentPage] = useState(1)
+    let [curentPage, setCurentPage] = useState(1)
     const [postsPerPage] = useState(10)
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const Postsimg = () => {
         }
         fetchPosts()
     }, []);
-    console.log(posts)
+
     const indexOfLastPost = curentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const curentPost = posts.slice(indexOfFirstPost, indexOfLastPost)
@@ -26,7 +26,7 @@ const Postsimg = () => {
 
     return (
         <div>
-            <PostsimgList posts={posts} curentPost={curentPost} loading={loading} postsPerPage={postsPerPage} paginate={paginate} curentPage={curentPage}/>
+            <PostsimgList posts={posts} curentPost={curentPost} loading={loading} postsPerPage={postsPerPage} paginate={paginate} curentPage={curentPage} />
         </div>
     )
 }

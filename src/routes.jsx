@@ -8,7 +8,8 @@ const BaseRoute = () => {
             <Routes>
                 <Route path='/' element={<Post />} />
                 <Route path='/postimg/' element={<Postsimg />} />
-                <Route path='/postimg/:id' element={<Postimg />} />
+                <Route path='/postimg/page/:curentPage' element={<Postsimg />} />
+                <Route path='/postimg/post/:id' element={<Postimg />} />
             </Routes>
         </div>
     )

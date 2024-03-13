@@ -9,7 +9,7 @@ const PostsimgList = ({ posts, curentPost, loading, postsPerPage, paginate, cure
         <Pagin postsPerPage={postsPerPage} TotalPosts={posts.length} paginate={paginate} curentPage={curentPage} />
         {curentPost.map((post) => (
             <div key={post.id} className='div-post-img'>
-                <a href={`./${post.id}`}>
+                <a href={`/post/${post.id}`}>
                     <div>
                         <div className='div-title'>{post.title}</div>
                     </div>
