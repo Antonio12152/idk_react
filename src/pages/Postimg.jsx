@@ -5,9 +5,9 @@ import PostimgSingle from "../components/PostimgSingle"
 const Postimg = () => {
     const [post, setPost] = useState([])
     const [loading, setLoading] = useState(false)
-    const currentUrl = window.location.href;
-    const segments = currentUrl.split("/"); // Разбиваем URL на сегменты с помощью разделителя "/"
-    const id = segments[segments.length - 1]; // Получаем последний сегмент, содержащий числовое значение
+    const currentUrl = window.location.href
+    const segments = currentUrl.split("/")
+    const id = segments[segments.length - 1]
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true)

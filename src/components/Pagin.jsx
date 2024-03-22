@@ -1,8 +1,8 @@
 import React from "react"
 import '../CSS/Pagin.css'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage}) => {
+const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage }) => {
     const pageNumbers = []
     for (let i = 1; i <= Math.ceil(TotalPosts / postsPerPage); i++) {
         pageNumbers.push(i)
@@ -48,7 +48,7 @@ const Pagin = ({ postsPerPage, TotalPosts, paginate, curentPage}) => {
                 {prd}
                 {pageNumbers.filter(num => num > pageCutLow + 1 && num < pageCutHigh - 1).map(num => (
                     <li key={num} className={curentPage == num ? "active pag" : "pag"}>
-                        <Link  to={`/${segments[3]}/page/${num}`} onClick={() => {paginate(num)}}>{num}</Link>
+                        <Link to={`/${segments[3]}/page/${num}`} onClick={() => { paginate(num) }}>{num}</Link>
                     </li>
                 ))}
                 {ned}

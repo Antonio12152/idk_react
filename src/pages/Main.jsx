@@ -9,7 +9,10 @@ const Main = (props) => {
                         <a href='/'>Post</a>
                     </li>
                     <li>
-                        <a href='/postimg/'>Post+Img</a>
+                        <a href='/postimg/page/'>Post+Img</a>
+                    </li>
+                    <li>
+                        <a href='/gamepost/page/'>Master Gaming</a>
                     </li>
                 </ul>
             </header>
